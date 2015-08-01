@@ -6,37 +6,37 @@
         {
             "name": "HTTPcodes",
             "description": "HTTP Codes Distribution",
-            "query": "/\"(?P<httpcode> \\b\\d{3})/ groupby(httpcode) calculate(COUNT)"
+            "query": "where(/\"(?P<httpcode> \\b\\d{3})/) groupby(httpcode) calculate(COUNT:httpcode)"
         },
          {
             "name": "URLDistribution",
             "description": "Individual URLs accessed",
-            "query": "/\"(?P<url>.{1,})\" \\d{3}/ groupby(url) calculate(COUNT)"
+            "query": "where(/\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT:url)"
         },
         {
             "name": "TotalBytes",
             "description": "Total bytes requested in average",
-            "query": "/\\b (?P<bytes>\\d{1,})/ calculate(AVERAGE:bytes)"
+            "query": "where(/\\b (?P<bytes>\\d{1,})/) calculate(AVERAGE:bytes)"
         },
         {
             "name": "Totalphp",
             "description": "Total number of .php request",
-            "query": "/\"GET .{1,}\\.php/ calculate(COUNT)"
+            "query": "where(/\"GET .{1,}\\.php/) calculate(COUNT)"
         },
         {
             "name": "Totaljpg",
             "description": "Total number of .jpg request",
-            "query": "/\"GET .{1,}\\.jpg/ calculate(COUNT)"
+            "query": "where(/\"GET .{1,}\\.jpg/) calculate(COUNT)"
         },        
         {
             "name": "Referer",
             "description": "Referer Distribution",
-            "query": "/\\d{3} \\d* \"(?P<referer>\\S*)\" / groupby(referer) calculate(COUNT)"
+            "query": "where(/\\d{3} \\d* \"(?P<referer>\\S*)\" /) groupby(referer) calculate(COUNT:referer)"
         },
          {
             "name": "UserAgent",
             "description": "User Agent Distribution",
-            "query": "/\\d{3} \\d* \"\\S{1,}\" \"(?P<useragent>.*)\" \"/ groupby(useragent) calculate(COUNT)"      
+            "query": "where(/\\d{3} \\d* \"\\S{1,}\" \"(?P<useragent>.*)\" \"/) groupby(useragent) calculate(COUNT:useragent)"      
         }
           
     ],
