@@ -6,12 +6,12 @@
         {
             "name": "HTTPcodes",
             "description": "HTTP Codes Distribution",
-            "query": "where(/\" (?P<httpcode>\\b\\d{3})/) groupby(httpcode) calculate(COUNT)"
+            "query": "where(/\" (?P<httpcode>\\b\\d{3})/) groupby(httpcode) calculate(COUNT:httpcode)"
         },
          {
             "name": "URLDistribution",
             "description": "Individual URLs accessed",
-            "query": "where/\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT)"
+            "query": "where/\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT:url)"
         },
         {
             "name": "TotalBytes",
@@ -21,17 +21,17 @@
         {
         	"name": "url401",
             "description": "List of all URLs that yield 401 error",
-            "query": "where(/\" (?P<httpcode>\\b\\d{3})/ httpcode=401 AND /\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT)"
+            "query": "where(/\" (?P<httpcode>\\b\\d{3})/ httpcode=401 AND /\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT:httpcode)"
         },
         {
         	"name": "url200",
             "description": "List of all URLs that yield 200 OK",
-            "query": "where(/\" (?P<httpcode>\\b\\d{3})/ httpcode=200 AND /\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT)"
+            "query": "where(/\" (?P<httpcode>\\b\\d{3})/ httpcode=200 AND /\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT:httpcode)"
         },
         {
         	"name": "url404",
             "description": "List of all URLs that yield 404 error",
-            "query": "where(/\" (?P<httpcode>\\b\\d{3})/ httpcode=404 AND /\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT)"
+            "query": "where(/\" (?P<httpcode>\\b\\d{3})/ httpcode=404 AND /\"(?P<url>.{1,})\" \\d{3}/) groupby(url) calculate(COUNT:httpcode)"
         }
         
         
