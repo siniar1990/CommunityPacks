@@ -8,7 +8,7 @@
         {
             "name": "Page_View_Distribution",
             "description": "A quick view of the distribution of page requests",
-            "query": "where(status!=404) GroupBy(request) Calculate(count)"
+            "query": "where(status!=404) GroupBy(request) calculate(count)"
         },
         {
             "name": "Status_Type_Distribution",
@@ -43,17 +43,17 @@
         {
             "name": "404_URL_Distribution",
             "description": "Distribution of 404 errors over requests",
-            "query": "where(status=404) Groupby(request) Calculate(count)"
+            "query": "where(status=404) Groupby(request) calculate(count)"
         },
         {
             "name": "404_Requests_IPs",
             "description": "Distribution of 404 errors over requests",
-            "query": "where(status=404) Groupby(request) Calculate(count)"
+            "query": "where(status=404) Groupby(request) calculate(count)"
         },
         {
             "name": "UserAgentsDistrobution",
             "description": "Distribution of user agents",
-            "query": "where(status>0) Groupby(http_user_agent) Calculate(count)"
+            "query": "where(status>0) Groupby(http_user_agent) calculate(count)"
         }
     ],
     "tags": [
