@@ -62,23 +62,23 @@
     "searches": [
         {
             "name": "cpuutilization",
-            "query": "CPUUtilization AND average>0 calculate(AVERAGE)"
+            "query": "where(CPUUtilization AND average>0) calculate(AVERAGE)"
         },
         {
             "name": "cpuutilization_server",
-            "query": "CPUUtilization AND average>0 | GroupBy(target) | AVERAGE(average)"
+            "query": "where(CPUUtilization AND average>0) | GroupBy(target) | AVERAGE(average)"
         },
         {
             "name": "networkin",
-            "query": "NetworkIn AND average>0 calculate(AVERAGE)"
+            "query": "where(NetworkIn AND average>0) calculate(AVERAGE)"
         },
         {
             "name": "networkout",
-            "query": "NetworkOut AND average>0 calculate(AVERAGE)"
+            "query": "where(NetworkOut AND average>0) calculate(AVERAGE)"
         },
         {
             "name": "networkin_server",
-            "query": "NetworkIn AND average>0 | GroupBy(target) | AVERAGE(average)"
+            "query": "where(NetworkIn AND average>0) | GroupBy(target) | AVERAGE(average)"
         },
         {
             "name": "networkout_server",

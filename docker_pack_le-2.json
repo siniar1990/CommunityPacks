@@ -1,32 +1,32 @@
 {
-	"name": "Nearform/Logentries Docker Pack ",
-	"description": "For Logentries account subscribers",
+    "name": "Nearform/Logentries Docker Pack ",
+    "description": "For Logentries account subscribers",
    
     "searches": [
         {
             "name": "AverageMemory",
             "description": "Average Memory Usage by Contained ID",
-            "query": "usage!=null | groupby(id) | average(usage)"
+            "query": "WHERE(usage!=null) groupby(id) calculate(AVERAGE:usage)"
         },
         {
             "name": "AverageMemory2",
             "description": "Average Memory Usage by Image ID",
-            "query": "usage!=null | groupby(image) | average(usage)"
+            "query": "WHERE(usage!=null) groupby(image) calculate(AVERAGE:usage)"
         },      
         {
             "name": "RX_Packets",
             "description": "Incoming Packets by Container ID",
-            "query": "usage!=null | groupby(id) | sum(rx_packets)"
+            "query": "WHERE(usage!=null) groupby(id) calculate(SUM:rx_packets)"
         },
         {
             "name": "TX_Packets",
             "description": "Outgoing Packets by Container ID",
-            "query": "usage!=null | groupby(id) | sum(tx_packets)"
+            "query": "WHERE(usage!=null) groupby(id) calculate(SUM:tx_packets)"
         },
         {
             "name": "CPU_by_container",
             "description": "CPU Usage by Container ID",
-            "query": "cpu_percent!=null | groupby(id) | average(cpu_percent)"
+            "query": "WHERE(cpu_percent!=null) groupby(id) calculate(AVERAGE:cpu_percent)"
         },
         {
             "name": "Overall_CPU",
@@ -36,12 +36,12 @@
         {
             "name": "Overall_Memory",
             "description": "Overall Memory usage over all containers",
-            "query": "usage!=null calculate(AVERAGE:usage)"
+            "query": "WHERE(usage!=null) calculate(AVERAGE:usage)"
         },
          {
             "name": "Cache_by_container",
             "description": "Average cache by container",
-            "query": "cache!=null groupby(id) calculate(AVERAGE:cache)"
+            "query": "WHERE(cache!=null) groupby(id) calculate(AVERAGE:cache)"
         }
         
         
@@ -192,12 +192,12 @@
             "show_tooltip": true,
             "type": "BarChart"
         },
-		{
-    		"name": "Cache by Container ID",
-    		"description": "Read/Writes to disk by container",
-    		"search_name":"Cache_by_container",
-    		"show_tooltip": true,
-    		"type": "BarChart"
-		}
+        {
+            "name": "Cache by Container ID",
+            "description": "Read/Writes to disk by container",
+            "search_name":"Cache_by_container",
+            "show_tooltip": true,
+            "type": "BarChart"
+        }
     ]
 }
