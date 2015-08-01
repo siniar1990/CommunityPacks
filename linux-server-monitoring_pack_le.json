@@ -3,72 +3,72 @@
         {
             "name": "Total System CPU Average",
             "description": "Total System CPU Average Over Time",
-            "query": "CPU.system>0 calculate(AVERAGE)"
+            "query": "where(CPU.system>0) calculate(AVERAGE:CPU.system)"
         },
         {
             "name": "Total User CPU Average",
             "description": "Total User CPU Average over Time",
-            "query": "CPU.user>0 calculate(AVERAGE)"
+            "query": "where(CPU.user>0) calculate(AVERAGE:CPU.user)"
         },
         {
             "name": "CPU Average Per Process",
             "description": "CPU Average Grouped by Process",
-            "query": "???CPU.total>0 GroupBy(process) calculate(AVERAGE)"
+            "query": "where(CPU.total>0) GroupBy(process) calculate(AVERAGE:CPU.total)"
         },
         {
             "name": "Total Available Memory",
             "description": "Total Available Memory Over Time",
-            "query": "Mem.total>0 calculate(AVERAGE)"
+            "query": "where(Mem.total>0) calculate(AVERAGE:Mem.total)"
         },
         {
             "name": "Memory Free",
             "description": "Memory Free over Time",
-            "query": "memory.MemFree>0 calculate(AVERAGE)"
+            "query": "where(memory.MemFree>0) calculate(AVERAGE:memory.MemFree)"
         },
         {
             "name": "Memory Active",
             "description": "Memory Active over Time",
-            "query": "memory.Active>0 calculate(AVERAGE)"
+            "query": "where(memory.Active>0) calculate(AVERAGE:memory.Active)"
         },
         {
             "name": "Memory Cached",
             "description": "Memory Cached over Time",
-            "query": "memory.Cached>0 calculate(AVERAGE)"
+            "query": "where(memory.Cached>0) calculate(AVERAGE:memory.Cached)"
         },
         {
             "name": "Memory Average Per Process",
             "description": "Memory Used Grouped by Process",
-            "query": "memory.Active>0 GroupBy(process) calculate(AVERAGE)"
+            "query": "where(memory.Active)>0 GroupBy(process) calculate(AVERAGE:memory.Active)"
         },
         {
             "name": "Disk Reads Per Second",
             "description": "Disk Reads in Bytes Per Second",
-            "query": "read_byte_per_second>0 calculate(AVERAGE)"
+            "query": "where(read_byte_per_second>0) calculate(AVERAGE:read_byte_per_second)"
         },
         {
             "name": "Disk Writes Per Second",
             "description": "Disk Writes in Bytes Per Second",
-            "query": "write_byte_per_second>0 calculate(AVERAGE)"
+            "query": "where(write_byte_per_second>0) calculate(AVERAGE:write_byte_per_second)"
         },
         {
             "name": "Used Disk",
             "description": "Disk Used in Bytes",
-            "query": "diskspace.root.byte_used>0 calculate(AVERAGE)"
+            "query": "where(diskspace.root.byte_used>0) calculate(AVERAGE:diskspace.root.byte_used)"
         },
         {
             "name": "Free Disk",
             "description": "Disk Free in Bytes",
-            "query": "diskspace.root.byte_free>0 calculate(AVERAGE)"
+            "query": "where(diskspace.root.byte_free>0) calculate(AVERAGE:diskspace.root.byte_free)"
         },
         {
             "name": "Logins",
             "description": "Number of SSHD Sessions Opened",
-            "query": "session opened for user calculate(COUNT)"
+            "query": "where(session opened for user) calculate(COUNT)"
         },
         {
             "name": "Failed Logins",
             "description": "Number of invalid user sshd attempts",
-            "query": "invalid user calculate(COUNT)"
+            "query": "where(invalid user) calculate(COUNT)"
         }
     ],
     "tags": [
