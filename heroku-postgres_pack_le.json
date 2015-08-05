@@ -333,11 +333,11 @@
     "searches": [
         {
             "name": "slow_query_average",
-            "query": "/duration: (?P<time>\\d+\\.\\d+) ms/ calculate(AVERAGE:time)"
+            "query": "where(/duration: (?P<time>\\d+\\.\\d+) ms/) calculate(AVERAGE:time)"
         },
         {
             "name": "severity_levels",
-            "query": "/(?P<severity>LOG|DEBUG|INFO|NOTICE|WARNING|FATAL|ERROR|PANIC)/ groupby(severity) calculate(COUNT)"
+            "query": "where(/(?P<severity>LOG|DEBUG|INFO|NOTICE|WARNING|FATAL|ERROR|PANIC)/) groupby(severity) calculate(COUNT)"
         }
         
         
