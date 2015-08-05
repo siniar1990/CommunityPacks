@@ -3,12 +3,12 @@
         {
             "name": "Unique_Visitors_Count",
             "description": "A count of the unique visitors over a specified time period",
-            "query": "where(sc-status>0) Calculate(unique:c-ip)"
+            "query": "where(sc-status>0) calculate(unique:c-ip)"
         },
         {
             "name": "Page_View_Distribution",
             "description": "A quick view of the distribution of page requests",
-            "query": "where(sc-status!=404) GroupBy(c-ip) Calculate(count)"
+            "query": "where(sc-status!=404) groupby(c-ip) calculate(count)"
         },
         {
             "name": "Status_Type_Distribution",
@@ -28,17 +28,17 @@
         {
             "name": "404Errors",
             "description": "Total amount of 404 errors for a specific time period",
-            "query": "where(sc-status=404) Calculate(count)"
+            "query": "where(sc-status=404) calculate(count)"
         },
         {
             "name": "404_URL_Distribution",
             "description": "Distribution of 404 errors over requests",
-            "query": "where(sc-status=404) Groupby(cs-uri-stem) Calculate(count)"
+            "query": "where(sc-status=404) groupby(cs-uri-stem) calculate(count)"
         },
         {
             "name": "404_Requests_IPs",
             "description": "Distribution of 404 errors by IP Address",
-            "query": "where(sc-status=404) Groupby(c-ip) Calculate(count)"
+            "query": "where(sc-status=404) groupby(c-ip) calculate(count)"
         },
         {
             "name": "UserAgentsDistribution",
